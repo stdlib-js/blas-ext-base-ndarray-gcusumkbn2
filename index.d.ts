@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2025 The Stdlib Authors.
@@ -16,17 +16,29 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { typedndarray } from '@stdlib/types/ndarray';
 
 /**
-* Compute the cumulative sum of a one-dimensional ndarray using a second-order iterative Kahan–Babuška algorithm.
+* Computes the cumulative sum of a one-dimensional ndarray using a second-order iterative Kahan–Babuška algorithm.
 *
-* @module @stdlib/blas-ext-base-ndarray-gcusumkbn2
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a one-dimensional input ndarray.
+*     -   a one-dimensional output ndarray.
+*     -   a zero-dimensional ndarray containing the initial sum.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns output ndarray
 *
 * @example
 * var vector = require( '@stdlib/ndarray-vector-ctor' );
 * var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
-* var gcusumkbn2 = require( '@stdlib/blas-ext-base-ndarray-gcusumkbn2' );
 *
 * var x = vector( [ 1.0, 3.0, 4.0, 2.0 ], 'generic' );
 * var y = vector( [ 0.0, 0.0, 0.0, 0.0 ], 'generic' );
@@ -41,12 +53,9 @@
 * var bool = ( z === y );
 * // returns true
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function gcusumkbn2<T extends typedndarray<number> = typedndarray<number>>( arrays: [ T, T, T ] ): T;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = gcusumkbn2;
